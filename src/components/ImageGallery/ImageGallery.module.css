@@ -8,21 +8,3 @@
     flex-wrap: wrap;
     padding: 40px 0;
 }
-
-.galleryItem {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 5px solid aquamarine;
-    border-radius: 32px;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.4);
-    transition:
-        transform 250ms linear;
-}
-
-.galleryItem:hover {
-    transform: scale(1.04);
-    cursor: pointer;
-}

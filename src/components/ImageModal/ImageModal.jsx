@@ -1,4 +1,5 @@
 import ReactModal from "react-modal";
+import css from "./ImageModal.module.css";
 
 function ImageModal({ showModal, closeModal, image }) {
   const customStyles = {
@@ -15,7 +16,7 @@ function ImageModal({ showModal, closeModal, image }) {
     },
   };
 
-  const { urls, alt_description } = image;
+  const { urls, alt_description, description } = image;
 
   ReactModal.setAppElement("#root");
 
@@ -26,7 +27,10 @@ function ImageModal({ showModal, closeModal, image }) {
       style={customStyles}
       contentLabel="Modal for one img"
     >
-      <img src={urls?.regular} alt={alt_description} />
+      <div className={css.wrapperContentModal}>
+        <img src={urls?.regular} alt={alt_description} />
+        {description && <p className={css.descriptionImg}>{description}</p>}
+      </div>
     </ReactModal>
   );
 }
