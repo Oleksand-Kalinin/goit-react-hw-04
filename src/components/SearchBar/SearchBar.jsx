@@ -1,4 +1,6 @@
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import css from "./SearchBar.module.css";
 
 function SearchBar({ onSubmit }) {
   const [query, setQuery] = useState("");
@@ -10,16 +12,25 @@ function SearchBar({ onSubmit }) {
   const handleSubmitForm = (e) => {
     e.preventDefault();
     if (!query.trim()) {
-      return alert("Please enter our search request");
+      const paramToast = {
+        position: "top-right",
+        style: {
+          backgroundColor: "aquamarine",
+          color: "green",
+        },
+      };
+      toast("Please enter our search request", paramToast);
     }
     onSubmit(query);
     setQuery("");
   };
 
   return (
-    <header>
-      <form onSubmit={handleSubmitForm}>
+    <header className={css.header}>
+      <form className={css.form} onSubmit={handleSubmitForm}>
+        <Toaster />
         <input
+          className={css.input}
           type="text"
           autoComplete="off"
           autoFocus
@@ -27,7 +38,9 @@ function SearchBar({ onSubmit }) {
           value={query}
           onChange={handleChangeQuery}
         />
-        <button type="submit">Search</button>
+        <button className={css.btn} type="submit">
+          Search
+        </button>
       </form>
     </header>
   );

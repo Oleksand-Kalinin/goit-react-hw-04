@@ -1,7 +1,11 @@
 @import 'modern-normalize/modern-normalize.css';
 
 body {
-  padding: 40px;
+  margin-bottom: 40px;
+}
+
+.modalIsOpen {
+  overflow: hidden;
 }
 
 a {
@@ -40,6 +44,8 @@ button {
 img {
   display: block;
   max-width: 100%;
+  object-fit: cover;
+  height: 100%;
 }
 
 svg {
